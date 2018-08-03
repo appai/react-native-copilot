@@ -102,6 +102,6 @@ class App extends Component {
 }
 
 export default copilot({
-  animated: true, // Can be true or false
-  overlay: 'svg', // Can be either view or svg
+  animated: true,
+  overlay: 'view'
 })(App);

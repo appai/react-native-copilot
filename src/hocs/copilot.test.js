@@ -4,7 +4,6 @@ import renderer from 'react-test-renderer';
 import { copilot, walkthroughable, CopilotStep } from '../index';
 import CopilotModal from '../components/CopilotModal';
 import ViewMask from '../components/ViewMask';
-import SvgMask from '../components/SvgMask';
 
 const WalkthroughableView = walkthroughable(View);
 
@@ -51,19 +50,6 @@ it('renders <ViewMask /> when the overlay is `view`', async () => {
   await tree.root.findByType(SampleComponent).props.start();
 
   const maskComponent = tree.root.findByType(ViewMask);
-
-  expect(maskComponent).toBeDefined();
-});
-
-it('renders <SvgMask /> when the overlay is `svg`', async () => {
-  const CopilotComponent = copilot({
-    overlay: 'svg',
-  })(SampleComponent);
-
-  const tree = renderer.create(<CopilotComponent />);
-  await tree.root.findByType(SampleComponent).props.start();
-
-  const maskComponent = tree.root.findByType(SvgMask);
 
   expect(maskComponent).toBeDefined();
 });

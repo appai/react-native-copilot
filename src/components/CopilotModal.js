@@ -18,7 +18,7 @@ type Props = {
   animationDuration: ?number,
   tooltipComponent: ?React$Component,
   stepNumberComponent: ?React$Component,
-  overlay: 'svg' | 'view',
+  overlay: 'view',
   animated: boolean,
   androidStatusBarVisible: boolean,
 };
@@ -42,10 +42,8 @@ class CopilotModal extends Component<Props, State> {
     animationDuration: 400,
     tooltipComponent: Tooltip,
     stepNumberComponent: StepNumber,
-    // If react-native-svg native module was avaialble, use svg as the default overlay component
-    overlay: typeof NativeModules.RNSVGSvgViewManager !== 'undefined' ? 'svg' : 'view',
-    // If animated was not specified, rely on the default overlay type
-    animated: typeof NativeModules.RNSVGSvgViewManager !== 'undefined',
+    overlay: 'view',
+    animated: false,
     androidStatusBarVisible: true,
   };
 
