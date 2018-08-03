@@ -219,13 +219,12 @@ class CopilotModal extends Component<Props, State> {
 
   renderMask() {
     /* eslint-disable global-require */
-    const MaskComponent = this.props.overlay === 'svg'
-      ? require('./SvgMask').default
-      : require('./ViewMask').default;
+    const MaskComponent = require('./ViewMask').default;
     /* eslint-enable */
 
     return (
       <MaskComponent
+        isFirstStep={this.props.isFirstStep}
         animated={this.props.animated}
         layout={this.state.layout}
         style={styles.overlayContainer}

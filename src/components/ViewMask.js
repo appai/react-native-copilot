@@ -31,10 +31,13 @@ class ViewMask extends Component<Props, State> {
     position: new Animated.ValueXY({ x: 0, y: 0 }),
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.position !== nextProps.position || this.props.size !== nextProps.size) {
-      this.animate(nextProps.size, nextProps.position);
-    }
+  componentWillReceiveProps(nextProps) {    if (this.props.position !== nextProps.position || this.props.size !== nextProps.size) {
+    this.animate(nextProps.size, nextProps.position);
+  }
+
+  if (nextProps.isFirstStep) {
+    this.animate(nextProps.size, nextProps.position);
+  }
   }
 
   animate = (size: valueXY = this.props.size, position: valueXY = this.props.position): void => {
